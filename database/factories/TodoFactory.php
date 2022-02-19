@@ -18,7 +18,7 @@ class TodoFactory extends Factory
         return [
             'title' => $this->faker->sentence,
             'completed' => rand(0, 1),
-            'userId' => rand(1, 10)
+            'userId' => 1
         ];
     }
 }
