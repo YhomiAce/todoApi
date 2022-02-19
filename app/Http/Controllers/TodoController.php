@@ -6,6 +6,7 @@ use App\Models\Todo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\TodoResource;
+use Illuminate\Support\Facades\Validator;
 
 class TodoController extends Controller
 {
@@ -13,7 +14,7 @@ class TodoController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth:api', ['except'=> ['getAllTodos']]);
+        $this->middleware('auth:api', ['except'=> ['getAllTodos', 'store', 'destroy']]);
         $this->user = $this->guard()->user();
     }
     /**
@@ -52,7 +53,8 @@ class TodoController extends Controller
         $todo = new Todo();
         $todo->title = $request->title;
         $todo->completed = $request->completed;
-        if($this->user->todos()->save($todo)){
+        $todo->userId = 1;
+        if($todo->save()){
             return response()->json([
                 'status' => true,
                 'todo' => $todo
