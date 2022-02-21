@@ -3,7 +3,7 @@
 ### Note: Make sure you have git installed locally on your computer first.
 
 #### Application Setup process
-##### git clone https://github.com/YhomiAce/bookApi.git
+##### git clone https://github.com/YhomiAce/todoApi.git
 ##### cd into your project
 ##### Install Composer Dependencies with "composer install"
 ##### Create a copy of your .env file with "cp .env.example .env"
@@ -13,26 +13,17 @@
 ##### Migrate the database with "php artisan migrate"
 ##### Start application with "php artisan serve"
 
-### Requirement 1
 
-###### Query Ice and Fire Api: /api/external-books?name=nameOfBook : GET
+### CRUD TODO
 
-### Requirement 2
-
-##### Get all books: /api/books :GET
-##### Create books: /api/books :POST
-##### Read a book: /api/books/id :GET
-##### Update a book: /api/books/id :PATCH
-##### Delete a book: /api/books/id :DELETE
-
-### Requirement 3
+##### Get all todos: /api/todos :GET
+##### Create todos: /api/todos :POST
+##### Read a todo: /api/todos/id :GET
+##### Update a todo: /api/todos/id :PATCH
+##### Delete a todo: /api/todos/id :DELETE
 
 ##### Front end built with React
+###### Github Repos: https://github.com/YhomiAce/TodoUI
 
-##### Application Setup process
-###### git clone https://github.com/YhomiAce/book_frontend.git
-###### cd into your project
-###### npm install
-###### Go Into the src/context/BookState.js change the URL to the url your local server is running
-###### Go Into the src/components/Books/EditBook.js change the URL to the url your local server is running
-###### run "npm start" to start testing the requirement 3 functionality
+###### Online URL Backend: https://serene-ravine-67977.herokuapp.com/api/todos
+###### Online URL Frontend: https://react-laravel-todo.netlify.app
