@@ -14,7 +14,7 @@ class TodoController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth:api', ['except'=> ['getAllTodos', 'store', 'destroy']]);
+        $this->middleware('auth:api', ['except'=> ['getAllTodos', 'store', 'destroy', 'index', 'show', 'update']]);
         $this->user = $this->guard()->user();
     }
     /**
@@ -24,8 +24,10 @@ class TodoController extends Controller
      */
     public function index()
     {
-        $todos = $this->user->todos()->get(['id', 'userId','title', 'completed']);
-        return response()->json($todos->toArray());
+        $todos = TodoResource::collection(Todo::all());
+        return response()->json([
+        "data" => $todos
+        ], 200);
     }
 
 
